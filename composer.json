@@ -1,5 +1,5 @@
 {
-    "name": "Walksoft16/Roles",
+    "name": "walksoft16/roles",
     "description": ":description",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "homepage": "walksoft.com.co"
         }
     ],
-    "homepage": "https://github.com/Walksoft/Roles",
+    "homepage": "https://github.com/walksoft/roles",
     "keywords": ["Laravel", "Roles"],
     "require": {
         "illuminate/support": "~5"
