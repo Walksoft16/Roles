@@ -9,4 +9,4 @@
  |
  */
 
-//Route::resource('roles', '\Walksoft\Roles\Http\Controllers\RolesController');
+Route::resource('roles', '\Walksoft\Roles\Http\Controllers\RolesController');
