@@ -28,7 +28,7 @@ class RolesServiceProvider extends ServiceProvider
         AliasLoader::getInstance()->alias('RolesAppController', $nameSpace . 'Http\Controllers\Controller');
 
         // Routes
-        $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers', 'middleware'=>['web', 'auth']], function () {
+        $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers', 'middleware'=>['web', 'auth'], 'prefix'=> config('adminlte.dashboard_url')], function () {
             require __DIR__ . '/../routes/web.php';
         });
 
