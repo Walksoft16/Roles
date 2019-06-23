@@ -59,10 +59,3 @@
      </div>
 </div>
 @stop
-@section('js')
-<script>
-  $(function () {
-    $('#datatable-buttons').DataTable();
-  })
-</script>
- @stop
