@@ -31,18 +31,18 @@ class RolesController extends Controller
      */
     public function index(){
 
-        if(!Auth::user()->hasPermission('list.roles') &&
-           !Auth::user()->hasPermission('create.roles') &&
-           !Auth::user()->hasPermission('edit.roles') &&
-           !Auth::user()->hasPermission('delete.roles')){
+        if(!Auth::user()->hasPermissionTo('list.roles') &&
+           !Auth::user()->hasPermissionTo('create.roles') &&
+           !Auth::user()->hasPermissionTo('edit.roles') &&
+           !Auth::user()->hasPermissionTo('delete.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
 
         $permits = [];
-        $permits['create'] = Auth::user()->hasPermission('create.roles');
-        $permits['edit']   = Auth::user()->hasPermission('edit.roles');
-        $permits['delete'] = Auth::user()->hasPermission('delete.roles');
+        $permits['create'] = Auth::user()->hasPermissionTo('create.roles');
+        $permits['edit']   = Auth::user()->hasPermissionTo('edit.roles');
+        $permits['delete'] = Auth::user()->hasPermissionTo('delete.roles');
 
         $roles = Role::orderBy('created_at','DESC')->get();
         return  view('Roles::admin.roles.index',compact('roles','permits'));
@@ -56,7 +56,7 @@ class RolesController extends Controller
      */
     public function create(){
 
-        if(!Auth::user()->hasPermission('create.roles')){
+        if(!Auth::user()->hasPermissionTo('create.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
@@ -71,7 +71,7 @@ class RolesController extends Controller
      */
     public function store(Request $request){
 
-        if(!Auth::user()->hasPermission('create.roles')){
+        if(!Auth::user()->hasPermissionTo('create.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
@@ -128,7 +128,7 @@ class RolesController extends Controller
      */
     public function show($id){
 
-        if(!Auth::user()->hasPermission('delete.roles')){
+        if(!Auth::user()->hasPermissionTo('delete.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
@@ -146,7 +146,7 @@ class RolesController extends Controller
      */
     public function destroy($id){
 
-        if(!Auth::user()->hasPermission('delete.roles')){
+        if(!Auth::user()->hasPermissionTo('delete.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
@@ -171,7 +171,7 @@ class RolesController extends Controller
      */
     public function edit($id){
 
-        if(!Auth::user()->hasPermission('edit.roles')){
+        if(!Auth::user()->hasPermissionTo('edit.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
@@ -192,7 +192,7 @@ class RolesController extends Controller
      */
     public function update(Request $request,$id){
 
-        if(!Auth::user()->hasPermission('edit.roles')){
+        if(!Auth::user()->hasPermissionTo('edit.roles')){
           Session::flash('error',trans('adminlte::adminlte.app_msj_not_permissions'));
           return redirect()->route('admin');
         }
