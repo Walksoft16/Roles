@@ -6,10 +6,10 @@ use RolesAppController as Controller;
 
 //use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Ultraware\Roles\Models\Role;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\QueryException;
-use Ultraware\Roles\Models\Permission;
+use Caffeinated\Shinobi\Models\Permission;
 use Auth;
 
 class RolesController extends Controller
